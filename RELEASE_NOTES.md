@@ -142,11 +142,27 @@ release. A code-signed build is on the roadmap.
   correction toggle/diagnostics
 - Audio device picker auto-populates from the host's audio devices
 
+#### Command-line modes
+
+- `--no-gui` headless mode: no main window, just the CAT server,
+  Linrad server, and audio I/O running in the background. Useful for
+  server / Pi-style installs.
+- `--console` (Windows): attaches a separate debug-console window to
+  the otherwise-windowless GUI build, with the full `fprintf(stderr)`
+  log output (audio status, Linrad packet stats, I/Q balance state,
+  etc.). Combine with `--no-gui` for headless-with-log.
+- All HackRF gain / freq / mode parameters can be overridden with
+  individual flags (`--freq`, `--tx-gain`, `--rx-lna`, `--rx-vga`,
+  `--rx-amp`, `--bias-tee`, `--if-offset`, `--ppm`, `--linrad-gain`,
+  `--tx-device`, `--rx-device`). CLI overrides INI for the current
+  run; clean exits write the current state back to the INI.
+- `--help` lists every option.
+
 #### Persistence
 
 - Frequency, mode, gains, audio device names, IF offset, PPM, RX audio
   gain, Linrad gain, and I/Q balance enable state are all saved to
-  `%APPDATA%\Roaming\n6nu\VirtualSDR.ini`
+  `%APPDATA%\Roaming\n6nu\HackRF WSJT-X Bridge.ini`
 - Last-tuned frequency is written back on every CAT change (so a
   `pkill` / Ctrl-C exit doesn't lose it)
 - CLI flags override stored values for the current run; on exit,

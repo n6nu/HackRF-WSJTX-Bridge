@@ -48,6 +48,30 @@ installed `hackrf-wsjtx.exe` itself; handle it the same way.
 
 ---
 
+## Command-line options
+
+Double-clicking the installed shortcut launches the GUI. From a
+terminal you can also pass flags. The most useful ones for testers:
+
+| Flag | What it does |
+|---|---|
+| `--help` | Print the full list of options and exit. |
+| `--console` | Open a separate debug-console window with the bridge's full `stderr` log (banner, audio I/O, Linrad packet stats, I/Q balance estimator state, etc.). Closing the console quits the bridge. |
+| `--no-gui` | Headless mode — no main window, just the CAT server on TCP 4533, the Linrad server on TCP 49812 / UDP 50004, and audio I/O running in the background. Exits if no HackRF is connected (nothing to do without hardware). Combine with `--console` to see the log on a server-style box. |
+| `--freq <Hz>` | Initial dial frequency in Hz (e.g. `--freq 144174000`). Overrides the saved INI value for this run. |
+| `--linrad-gain <dB>` | Override the Linrad/QMAP digital output gain (`-20`…`+40` dB, default `+20`). Useful for loud-signal testing where the default gain causes clipping spurs. |
+
+Example — headless run with full logging:
+
+```
+"C:\Program Files\HackRF WSJT-X Bridge\hackrf-wsjtx.exe" --no-gui --console
+```
+
+The full set of flags (HackRF gains, IF offset, PPM, audio device
+overrides, test-tone modes, etc.) is in `--help`.
+
+---
+
 ## Reporting
 
 Send reports directly to **<n6nu@arrl.net>**. Useful
