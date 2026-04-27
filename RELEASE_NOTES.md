@@ -8,6 +8,19 @@ fftw3, Qt 6, soxr, libusb, and Zadig (Pete Batard / libwdi) — are
 documented in `THIRD_PARTY_LICENSES.md`. **No warranty.**
 You install and run this software at your own risk.
 
+## v0.99.2 — beta (2026-04-27)
+
+- The bridge now starts even when no HackRF is connected. Previously
+  the GUI would silently fail to launch on a fresh test machine if
+  the HackRF wasn't plugged in or its WinUSB driver wasn't yet
+  installed. The bridge now shows a small *"HackRF not found"* dialog,
+  opens the main window with the **HackRF** status row reading
+  *Not connected* (amber), and lets the tester explore the Settings
+  dialog and audio routing while the radio is offline. Plugging the
+  HackRF in afterwards and clicking **Start** retries the open and
+  recovers without a restart. Headless mode still exits with an error
+  when no HackRF is found — there's nothing to do without hardware.
+
 ## v0.99.1 — beta (2026-04-27)
 
 - INI file moved from `n6nu\VirtualSDR.ini` to `n6nu\HackRF WSJT-X

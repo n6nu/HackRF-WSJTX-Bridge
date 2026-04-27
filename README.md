@@ -10,9 +10,9 @@ Author: **Andreas Junge, N6NU** &lt;<n6nu@arrl.net>&gt;.
 
 ---
 
-## Latest beta — v0.99.1
+## Latest beta — v0.99.2
 
-Download: **[hackrf-wsjtx-0.99.1-setup.exe](hackrf-wsjtx-0.99.1-setup.exe)**
+Download: **[hackrf-wsjtx-0.99.2-setup.exe](hackrf-wsjtx-0.99.2-setup.exe)**
 
 Full per-version notes, feature list, system requirements and
 known limitations are in [`RELEASE_NOTES.md`](RELEASE_NOTES.md).
