@@ -8,6 +8,19 @@ fftw3, Qt 6, soxr, libusb, and Zadig (Pete Batard / libwdi) — are
 documented in `THIRD_PARTY_LICENSES.md`. **No warranty.**
 You install and run this software at your own risk.
 
+## v0.99.3 — beta (2026-04-27)
+
+- Fix: on Windows, the Settings dialog showed **IF offset = 1500**
+  on a fresh install with no HackRF attached, instead of the
+  documented platform default of 0. Cause: when the HackRF wasn't
+  open at startup, `main.cpp` skipped `HackRfDevice::configure()`
+  entirely (no hardware to talk to), so the `HackRfDevice::Config`
+  struct's hardcoded 1500 fallback leaked through to the dialog
+  instead of the CLI/INI-derived 0. `configure()` is now safe to
+  call without an open device — it just records the requested
+  config; hardware writes happen on open / Start. The Settings
+  dialog now correctly reads back **0** on a fresh Windows install.
+
 ## v0.99.2 — beta (2026-04-27)
 
 - The bridge now starts even when no HackRF is connected. Previously
