@@ -19,8 +19,9 @@ known limitations are in [`RELEASE_NOTES.md`](RELEASE_NOTES.md).
 
 ### First-launch SmartScreen warning
 
-The installer is **not code-signed**. On first launch on a fresh
-Windows 10 / 11 machine you will see:
+The installer is **not code-signed** and is **64-bit only**
+(Windows 10 / 11 x64). On first launch on a fresh machine you will
+see:
 
 > Windows protected your PC.
 > Microsoft Defender SmartScreen prevented an unrecognized app from
