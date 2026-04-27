@@ -195,7 +195,7 @@ Detailed Windows install steps are in `WINDOWS.md`.
 ### Reporting
 
 Send reports directly to Andreas Junge (N6NU) at
-**<n6nu@arrl.net>** — or by QSO. When reporting an issue, include:
+**<n6nu@arrl.net>**. When reporting an issue, include:
 
 - HackRF serial / firmware version (`hackrf_info` output)
 - Windows version / build

@@ -49,7 +49,7 @@ installed `hackrf-wsjtx.exe` itself; handle it the same way.
 
 ## Reporting
 
-Send reports directly to **<n6nu@arrl.net>** — or by QSO. Useful
+Send reports directly to **<n6nu@arrl.net>**. Useful
 information to include:
 
 - HackRF serial / firmware version (`hackrf_info`)
