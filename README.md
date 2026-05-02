@@ -1,4 +1,4 @@
-# HackRF WSJT-X Bridge — Beta Releases
+# HackRF WSJT-X Bridge — Releases
 
 Windows installer downloads for the **HackRF WSJT-X Bridge** — a Qt6
 C++ application that turns a HackRF One into a USB-SSB software
@@ -10,9 +10,14 @@ Author: **Andreas Junge, N6NU** &lt;<n6nu@arrl.net>&gt;.
 
 ---
 
-## Latest beta — v0.99.3
+## Latest release — v1.0.0 (first stable)
 
-Download: **[hackrf-wsjtx-0.99.4-setup.exe](hackrf-wsjtx-0.99.4-setup.exe)**
+Download: **[hackrf-wsjtx-1.0.0-setup.exe](hackrf-wsjtx-1.0.0-setup.exe)**
+
+Promoted out of beta. Verified end-to-end on 2 m for narrowband
+(FT8 via WSJT-X sound-card path) and wideband (Q65 via QMAP
+Linrad path) operation against real on-air signals on a
+GPSDO-locked HackRF One.
 
 Full per-version notes, feature list, system requirements and
 known limitations are in [`RELEASE_NOTES.md`](RELEASE_NOTES.md).

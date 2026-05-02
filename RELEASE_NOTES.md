@@ -8,6 +8,22 @@ fftw3, Qt 6, soxr, libusb, and Zadig (Pete Batard / libwdi) — are
 documented in `THIRD_PARTY_LICENSES.md`. **No warranty.**
 You install and run this software at your own risk.
 
+## v1.0.0 — first stable (2026-05-02)
+
+Promoted out of beta. The full TX+RX HackRF transceiver bridge has
+been verified end-to-end on 2 m for both narrowband (FT8 via WSJT-X
+sound-card path) and wideband (Q65 via QMAP Linrad path) operation,
+on real on-air signals against a GPSDO-locked HackRF One. The 0.99.x
+beta line ends here; future development opens a 1.x series.
+
+Cumulative since v0.99.4:
+
+- **Waterfall span now matches the actual IQ rate.** The display was
+  hardcoded to 2 MHz (the HackRF default); on non-standard sample
+  rates the labels were wrong. Now uses `FftEngine::sampleRateHz()`.
+
+No INI / migration changes; v1.0.0 is a drop-in upgrade from v0.99.4.
+
 ## v0.99.4 — spectrum waterfall toggle (2026-05-02)
 
 The built-in spectrum / waterfall display can now be turned off from
