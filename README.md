@@ -12,12 +12,14 @@ Author: **Andreas Junge, N6NU** &lt;<n6nu@arrl.net>&gt;.
 
 ## Latest release — v1.0.0 (stable)
 
-Download: **[hackrf-wsjtx-1.0.0-setup.exe](hackrf-wsjtx-1.0.0-setup.exe)**
+Download: **[hackrf-wsjtx-1.0.1-setup.exe](hackrf-wsjtx-1.0.1-setup.exe)**
 
-Promoted out of beta. Verified end-to-end on 2 m for narrowband
-(FT8 via WSJT-X sound-card path) and wideband (Q65 via QMAP
-Linrad path) operation against real on-air signals on a
-GPSDO-locked HackRF One.
+**v1.0.1 — fix WSJT-X PTT method = CAT in data modes (FT8 / FT4 /
+Q65 / etc.).** Three CatServer fixes (`ptt_type=0x1`,
+`has_set_ptt=1` advertised, PTT value 3 accepted as ON) rolled in
+from this week's pluto-wsjtx-bridge bring-up. Anyone hitting "Test
+PTT clicked but nothing happened" with the v1.0.0 build should
+upgrade — it was the same bug. Drop-in upgrade. INI compatible.
 
 Full per-version notes, feature list, system requirements and
 known limitations are in [`RELEASE_NOTES.md`](RELEASE_NOTES.md).

@@ -8,6 +8,36 @@ fftw3, Qt 6, soxr, libusb, and Zadig (Pete Batard / libwdi) — are
 documented in `THIRD_PARTY_LICENSES.md`. **No warranty.**
 You install and run this software at your own risk.
 
+## v1.0.1 — fix WSJT-X PTT method = CAT (2026-05-04)
+
+Three CatServer (bridge-core) fixes rolled in from this week's
+`pluto-wsjtx-bridge` bring-up. All three affect WSJT-X
+**Settings → Radio → PTT method = CAT**, especially in data modes
+(PKTUSB / PKTLSB — FT8, FT4, Q65, MSK144, JT65 etc.):
+
+1. **`ptt_type=0x1`** in the `\dump_state` response (was `0x8` =
+   `RIG_PTT_GPION`, inverted GPIO). With the wrong value WSJT-X's
+   Settings dialog showed "PTT device: GPIO" and refused to send
+   `\set_ptt` over CAT. Now correctly reports `RIG_PTT_RIG`
+   (CAT-driven PTT).
+2. **`has_set_ptt=1` + `has_get_ptt=1` + `has_set_mode=1` +
+   `has_get_mode=1`** added to dump_state. WSJT-X 2.6+ checks
+   these capability flags before issuing the matching commands;
+   without them, even the correct `ptt_type` wasn't enough. The
+   bridge implemented all four — just hadn't advertised them.
+3. **PTT value parser** in both the long-form `\set_ptt VFO n`
+   and short-form `T VFOA n` handlers now accepts any non-zero
+   value as ON. Was matching only the literal string `"1"`.
+   WSJT-X in PKTUSB / PKTLSB sends Hamlib value `3` (`PTT_DATA`),
+   not 1 — so Test PTT clicked but the bridge logged
+   `[CAT PTT] off` and never started TX.
+
+Hamlib PTT enum: `0`=OFF, `1`=ON, `2`=MIC, `3`=DATA — all
+non-zero values now correctly trigger key-down.
+
+Drop-in upgrade from v1.0.0. INI compatible. No app-level code
+changed; only bridge-core.
+
 ## v1.0.0 — stable (2026-05-02)
 
 Promoted out of beta. The full TX+RX HackRF transceiver bridge has
